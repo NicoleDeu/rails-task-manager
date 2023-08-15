@@ -3,8 +3,16 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  # READ
   get "tasks", to: "tasks#index"
-  get "task/new", to: "tasks#new", as: :new_task
+  # CREATE
+  get "tasks/new", to: "tasks#new", as: :new_task
   post "tasks", to: "tasks#create"
-  get "task/:id", to: "tasks#show", as: :task
+  # READ
+  get "tasks/:id", to: "tasks#show", as: :task
+  # UPDATE
+  get "tasks/edit/:id", to: "tasks#edit", as: :edit_task
+  patch "tasks/:id", to: "tasks#update"
+  # DELETE
+  delete "tasks/:id", to: "tasks#destroy"
 end
